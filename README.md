@@ -17,3 +17,4 @@
 - [ ] Unity Simulation
 - [ ] CAD Design of OBU/RSU
   
+- [ ] Figure out network protocols
