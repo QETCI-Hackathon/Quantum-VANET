@@ -1,0 +1,2 @@
+HEADER_LEN = 64
+PORT = 6566
