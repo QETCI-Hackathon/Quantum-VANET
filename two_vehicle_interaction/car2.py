@@ -1,3 +1,5 @@
+# relays it's static position and gets warnings
+
 #!/usr/bin/env python
 import keyboard
 import asyncio
