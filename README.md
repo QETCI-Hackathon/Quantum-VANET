@@ -7,6 +7,8 @@
   - [ ] Boids algorithm
   - [ ] Qiskit codes and gates -> atleast 3
   - [ ] GPSR code
+  - [ ] Code for communication between OBU's and OBU to RSU 
+  - [ ] Algo for chosing the best road
 
 * Quantum bits
   - [ ] Quantum Cryptography
