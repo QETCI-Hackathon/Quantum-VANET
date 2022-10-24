@@ -6,15 +6,19 @@
 * Github Codes
   - [ ] Boids algorithm
   - [ ] Qiskit codes and gates -> atleast 3
+  - [ ] GPSR code
 
 * Quantum bits
-  - [ ] Quantum Internet
   - [ ] Quantum Cryptography
   - [ ] Quantum radar
 
-- [ ] App
-- [ ] Video
 - [ ] Unity Simulation
 - [ ] CAD Design of OBU/RSU
   
 - [ ] Figure out network protocols
+
+* If time permits:
+ - [ ] Quantum ML
+ - [ ] CNN
+ - [ ] App
+ 
