@@ -1,3 +1,5 @@
+# relay a static position 
+
 #!/usr/bin/env python
 import keyboard
 import asyncio
