@@ -1,1 +1,2 @@
-Mobile Application for accidents, GPS and warnings
+Mobile Application for accidents, GPS and warnings.
+
