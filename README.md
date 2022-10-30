@@ -1,11 +1,7 @@
-`Goal :` Create an epic prototype and get to the next round of the hackathon conducted by QETCI 
 
-`Deadline :` 29th October, 11:59 pm
-
-`To-do list : `
 * Github Codes
   - [ ] Boids algorithm
-  - [ ] Qiskit codes and gates -> atleast 3
+  - [ ] BB84 algorithm
   - [ ] GPSR code
   - [ ] Code for communication between OBU's and OBU to RSU 
   - [ ] Algo for chosing the best road
