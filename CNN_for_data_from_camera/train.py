@@ -148,6 +148,13 @@ for metric_i in range(len(model.metrics_names)):
     metric_value = metrics[metric_i]
     print('{}: {}'.format(metric_name, metric_value))
 
-    
 
-# Credits: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
+model.save('sample.h5')
+
+model_json = model.to_json()
+with open("truesample.json", "w") as json_file:
+    json_file.write(model_json)
+
+model.save_weights("truesample.h5")
+
+# Inspired by: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
