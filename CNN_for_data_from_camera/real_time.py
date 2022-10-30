@@ -1,3 +1,8 @@
+#  This module’s main aim is to predict presence of potholes in a live video feed. The module loads the model and captures video from the camera hardware using 
+# python’s open source library OpenCV. The video feed which is captured is divided into separate frames as 2d arrays. Then each frame is preprocessed in the same
+# manner as in trainer module, to meet the required dimensions of input. After the preprocessing is done, each frame is fed into the model for prediction and the 
+# predictions are then printed on the screen along with the confidence level.
+
 import cv2
 import time
 import imutils
