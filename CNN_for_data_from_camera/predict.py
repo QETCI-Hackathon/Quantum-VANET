@@ -1,3 +1,7 @@
+# This module’s main aim is to predict the presence of potholes in a certain number of images. The module loads the model and the images from the machine. 
+# The images are again preprocessed in the same manner as in trainer module. The images are fed into the model and predictions and accuracies are printed on the 
+# console.
+
 import numpy as np
 import cv2
 import glob
