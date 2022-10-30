@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -157,4 +155,4 @@ with open("truesample.json", "w") as json_file:
 
 model.save_weights("truesample.h5")
 
-Inspired by: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
+# Inspired by: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
