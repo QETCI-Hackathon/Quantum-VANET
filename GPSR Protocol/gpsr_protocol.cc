@@ -1,18 +1,3 @@
-/*********************************************************/
-/*  Copyright (c) 2011. University of Pau, France        */
-/*  LIUPPA Laboratory, T2I Team                          */
-/*                                                       */
-/*  Permission to use, copy, modify and distribute this  */
-/*  code, without fee, and without written agreement is  */
-/*  hereby granted, provided that the above copyright    */
-/*  notice and the authors appear in all copies          */
-/*                                                       */
-/*  GPSR Routing Protocol                                */
-/*  Version:  1.0                                        */
-/*  Authors: Diop Mamour <serignemamour.diop@gmail.com>  */
-/*           Congduc Pham <congduc.pham@univ-pau.fr>     */
-/*********************************************************/
-
 #include "GpsrRouting.h"
 #include "math.h"
 
@@ -20,9 +5,9 @@ using namespace std;
 
 Define_Module(GpsrRouting);
 
-//================================================================
+
 //    startup
-//================================================================
+
 void GpsrRouting::startup(){
 
     self = getParentModule()->getParentModule()->getIndex();
@@ -31,9 +16,7 @@ void GpsrRouting::startup(){
     totalSNnodes = getParentModule()->getParentModule()->getParentModule()->par("numNodes");
     
     trace() << "Total node = " << totalSNnodes << endl;
-//****    trace() << "SQRT TRY " << atan2(7.00,-7.00)<<endl;
-//****    trace() << "SQRT TRY " << norm(atan2(7.00,-7.00))<<endl;
-    
+
     
     helloInterval = (double)par("helloInterval") / 1000.0;
     activeRouteTimeout = (double)par("activeRouteTimeout") / 1000.0;
@@ -62,9 +45,8 @@ void GpsrRouting::startup(){
 	// we will only send HELLO message if the node's coordinates are set
 }
 
-//================================================================
 //    timerFiredCallback
-//================================================================
+
 void GpsrRouting::timerFiredCallback(int index){
      
     switch(index){
@@ -83,9 +65,8 @@ void GpsrRouting::timerFiredCallback(int index){
     }
 }
 
-//================================================================
 //    processBufferedPacket
-//================================================================
+
 
 void GpsrRouting::processBufferedPacket(){
 	while (!TXBuffer.empty()) {
@@ -94,9 +75,8 @@ void GpsrRouting::processBufferedPacket(){
 	}
 }
 
-//================================================================
 //    fromApplicationLayer
-//================================================================
+
 void GpsrRouting::fromApplicationLayer(cPacket * pkt, const char *destination){  
 
 	GpsrPacket *dataPacket = new GpsrPacket("GPSR routing data packet", NETWORK_LAYER_PACKET);
@@ -163,9 +143,8 @@ void GpsrRouting::fromApplicationLayer(cPacket * pkt, const char *destination){
     }	
 }
 
-//================================================================
 //    fromMacLayer
-//================================================================
+
 void GpsrRouting::fromMacLayer(cPacket * pkt, int macAddress, double rssi, double lqi){
 	
     GpsrPacket *netPacket = dynamic_cast <GpsrPacket*>(pkt);
@@ -213,16 +192,15 @@ void GpsrRouting::fromMacLayer(cPacket * pkt, int macAddress, double rssi, doubl
 	}
 }
 
-//================================================================
 //    finishSpecific
-//================================================================
+
 void GpsrRouting::finishSpecific() {
 
 }
 
-//================================================================
+
 //    sendHelloMsg
-//================================================================
+
 void GpsrRouting::sendHelloMessage(){
 
     GpsrPacket *helloMsg = new GpsrPacket("GPSR hello message packet", NETWORK_LAYER_PACKET);
@@ -241,9 +219,8 @@ void GpsrRouting::sendHelloMessage(){
 	setTimer(GPSR_HELLO_MSG_REFRESH_TIMER, helloInterval);
 }
 
-//================================================================
 //    processDataPacket
-//================================================================
+
 void GpsrRouting::processDataPacketFromMacLayer(GpsrPacket* pkt){
 
     string dst(pkt->getDestination());
@@ -304,9 +281,9 @@ void GpsrRouting::processDataPacketFromMacLayer(GpsrPacket* pkt){
      }		          
 }
 
-//================================================================
+
 //    updateNeighborTable
-//================================================================
+
 void GpsrRouting::updateNeighborTable(int nodeID, int theSN, int x_node, int y_node) {
 
 	int pos = -1;
@@ -355,9 +332,8 @@ void GpsrRouting::updateNeighborTable(int nodeID, int theSN, int x_node, int y_n
 	trace() << "--------------";
 }
 
-//================================================================
 //   getNextHopGreedy
-//================================================================
+
 int GpsrRouting::getNextHopGreedy(int x_Sink, int y_Sink){
   
    int nextHop = -1; double dist = 0;
@@ -386,9 +362,8 @@ int GpsrRouting::getNextHopGreedy(int x_Sink, int y_Sink){
    return nextHop;
 }
 
-//================================================================
 //    getNextHopPerimeter
-//================================================================
+
 int GpsrRouting::getNextHopPerimeter(int x_Sink, int y_Sink) {
     // NOT IMPLEMENTED YET
 //**********************
@@ -418,17 +393,17 @@ int GpsrRouting::getNextHopPerimeter(int x_Sink, int y_Sink) {
     return -1;
 }
 
-//================================================================
+
 //    distance
-//================================================================
+
 double GpsrRouting::distance(int x1, int y1, int x2, int y2) {
 
     return sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));	
 }
 
-//**********************************
+
 //    NORF Fun
-//**********************************
+
 double GpsrRouting::norm(double rad) {
 
 	while(rad < 0)
