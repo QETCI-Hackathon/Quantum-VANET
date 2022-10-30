@@ -79,7 +79,7 @@ temp4 = np.asarray(test2)
 
 
 ## load Testing data : potholes
-potholeTestImages = glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/test/Pothole/*.jpg")
+potholeTestImages = glob.glob("C:/Users/My Dataset/test/Pothole/*.jpg")
 test1 = [cv2.imread(img,0) for img in potholeTestImages]
 
 # train2[train2 != np.array(None)]
@@ -157,4 +157,4 @@ with open("truesample.json", "w") as json_file:
 
 model.save_weights("truesample.h5")
 
-# Inspired by: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
+Inspired by: https://github.com/anantSinghCross/pothole-detection-system-using-convolution-neural-networks
